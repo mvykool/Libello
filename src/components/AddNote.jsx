@@ -1,4 +1,6 @@
 import React from 'react'
+import { Icon } from '@chakra-ui/react'
+import { MdAddCircle } from 'react-icons/md'
 
 /**chakra ui */
 import {
@@ -17,6 +19,10 @@ import {
   Input
 } from '@chakra-ui/react'
 
+/**importing framer motion */
+
+import { motion } from 'framer-motion';
+
 /**importing uuid */
 import { v4 as uuidv4 } from 'uuid';
 
@@ -29,6 +35,16 @@ const firestore = getFirestore(FirebaseApp);
 
 
 const AddNote = ({notes, setNotes, userEmail}) => {
+
+  /**framer motion icon variant */
+
+  const iconsVariants = {
+    hidden: { scale: 1, rotate: 0 },
+    hover: { scale: 1.2,
+      rotate: 50, x: 8, y: 10,
+      transition: { duration: 0.5}
+    }
+  }
 
    /**open modal with chakra ui */
    const { isOpen, onOpen, onClose } = useDisclosure();
@@ -61,24 +77,33 @@ async function handleForm(e){
 
 return (
   <>
-	<Circle bg='gray.100' size={14} cursor='pointer' ml={4} mt={16} color='black' display='flex' justifyContent='center' alignItems="center" fontSize={35} onClick={onOpen}>+</Circle>
-      <Modal isOpen={isOpen} onClose={onClose}>
+	
+    <motion.div
+    variants={iconsVariants}
+		initial='hidden'
+		whileHover='hover'
+
+    >
+    <Icon as={MdAddCircle} onClick={onOpen} w={12} h={12} _hover={{color: 'var(--icon-shadow-color)'}} mt={7} ml={5} cursor='pointer' color='var(--icon-color)' />
+    </motion.div>
+  
+      <Modal isOpen={isOpen} onClose={onClose} >
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent bg='var(--bg-color)' border='1px' borderColor='var(--title-color)'>
           <ModalHeader>New Note:</ModalHeader>
           <ModalCloseButton />
           <form onSubmit={handleForm}>
           <ModalBody>
           
           <FormLabel htmlFor='formId'>Note:</FormLabel>
-          <Input type='text' placeholder='Reminder' id='formId'autoComplete="off" />
+          <Input type='text'mt={5} placeholder='Reminder' borderColor='var(--title-color)' id='formId'autoComplete="off" />
           </ModalBody>
 
           <ModalFooter mt={10}>
-            <Button colorScheme='blue' mr={3}  onClick={onClose}>
+            <Button bg='var(--icon-color)' color='var(--bg-color)' _hover={{background: 'var(--icon-shadow-color)'}}  mr={3}  onClick={onClose}>
               Close
             </Button>
-            <Button variant='ghost' type='submit' onClick={onClose}>Add Task</Button>
+            <Button variant='ghost' type='submit' color='var(--title-color)' onClick={onClose}>Add Task</Button>
           </ModalFooter>
           </form>
         </ModalContent>

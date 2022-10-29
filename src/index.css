@@ -1,15 +1,23 @@
 :root {
-    --bg-color: #1a202c;
+    --bg-color: white;
     --text-color: white;
-    --border-color: white;
+    --border-color: transparent;
     --note-color: white;
+    --note-shadow: none;
     --note-text-color: black;
+    --note-date-color: gray;
     --title-color: black;
+    --title-shadow: none;
+    --theme-bg: none;
+    --font-family: sans-serif;
+    --border-radius: 10px;
 }
 
 .body {
-    background-color: var(--bg-color);
+    background: var(--bg-color);
     color: var(--text-color);
+    font-family: var(--font-family);
+    overflow: hidden;
 }
 
 .form {
@@ -100,9 +108,9 @@
 
 .profile-img {
     border-radius: 50%;
+    border: 3px solid var(--icon-color);
     height: 50px;
     width: 50px;
-    cursor: pointer;
     margin-top: 80px;
     margin-left: 20px;
     margin-bottom: 40px;
@@ -110,4 +118,17 @@
 
 .color-item {
     cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    width: 150px;
+    padding: 7px;
+    border-radius: 5px;
+    text-align: center;
+    transition: 0.4s;
+}
+
+.color-item:hover {
+    border: 3px solid var(--text-color);
+    transform: scale(1.2);
 }

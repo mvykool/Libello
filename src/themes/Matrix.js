@@ -1,0 +1,16 @@
+export default function Matrix() {
+    document.documentElement.style.setProperty("--text-color", "#008F11")
+    document.documentElement.style.setProperty("--bg-color", "#020204")
+    document.documentElement.style.setProperty("--border-color", "#00FF41")
+    document.documentElement.style.setProperty("--note-color", "#020204")
+    document.documentElement.style.setProperty("--title-color", "#00FF41")
+    document.documentElement.style.setProperty("--icon-color", "#008F11")
+    document.documentElement.style.setProperty("--icon-shadow-color", "#204829")
+    document.documentElement.style.setProperty("--title-shadow", "none")
+    document.documentElement.style.setProperty("--note-text-color", "#00FF41")
+    document.documentElement.style.setProperty("--note-date-color", "#008F11")
+    document.documentElement.style.setProperty("--theme-bg", "#0b001b")
+    document.documentElement.style.setProperty("--font-family", "Orbitron, sans-serif")
+    document.documentElement.style.setProperty("--border-radius", "none")
+    document.documentElement.style.setProperty("--note-shadow", "none")
+}

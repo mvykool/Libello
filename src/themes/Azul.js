@@ -1,0 +1,16 @@
+export default function Azul() {
+    document.documentElement.style.setProperty("--text-color", "#fff")
+    document.documentElement.style.setProperty("--bg-color", "#0096FF")
+    document.documentElement.style.setProperty("--border-color", "")
+    document.documentElement.style.setProperty("--note-color", "rgba(190, 190, 190, 0.4 )")
+    document.documentElement.style.setProperty("--title-color", "#fff")
+    document.documentElement.style.setProperty("--icon-color", "#fff")
+    document.documentElement.style.setProperty("--icon-shadow-color", "#D2DAFF")
+    document.documentElement.style.setProperty("--title-shadow", "none")
+    document.documentElement.style.setProperty("--note-text-color", "#fff")
+    document.documentElement.style.setProperty("--note-date-color", "#545c84")
+    document.documentElement.style.setProperty("--theme-bg", "#0b001b")
+    document.documentElement.style.setProperty("--font-family", "Comfortaa, cursive")
+    document.documentElement.style.setProperty("--border-radius", "10px")
+    document.documentElement.style.setProperty("--note-shadow", "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )")
+}

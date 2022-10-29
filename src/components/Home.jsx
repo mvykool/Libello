@@ -6,10 +6,13 @@ import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'
 
 import AddNote from './AddNote';
 import NotesList from './NotesList';
-import ProfilePic from './ProfilePic';
+import ProfilePicAndTheme  from './ProfilePicAndTheme';
 
 
-import { chakra, useColorMode } from '@chakra-ui/react';
+import { motion } from 'framer-motion'
+
+
+import { chakra, Spinner, Text} from '@chakra-ui/react';
 
 /** starting firebase auth and firestore */
 
@@ -22,6 +25,18 @@ const firestore = getFirestore(FirebaseApp);
 
 /**chakra ui */
 import { Heading, Button, Box } from '@chakra-ui/react'
+
+/**button motion */
+
+const buttonVariant = {
+  hidden: {scale: 1},
+  hover: {
+    scale: 1.1,
+    transition: {
+      duration: 0.5
+    }
+  }
+}
 
 
 const Home = ({ userEmail, uid }) => {
@@ -81,25 +96,41 @@ fetchNotes();
 return (
 <>
         <chakra.div w={36} position='absolute' h='100vh' border='1px' borderColor='var(--border)' p={5} borderRadius='5px'>
-        <Heading as='h1' size='md' color='var(--title-color)'>
+        <Heading as='h1' ml={3} size='md' color='var(--title-color)' letterSpacing={1} textShadow='var(--title-shadow)' fontFamily='var(--font-family)'>
             Libello
         </Heading>
         
         <Box >
-          <ProfilePic uid={uid}/>
+          <ProfilePicAndTheme uid={uid}/>
         </Box>
-        <AddNote
+      <Box mb={60}>
+      <AddNote
             notes={notes}
             setNotes={setNotes}
             userEmail={userEmail}
         />
-        <Button size='sm' bottom='0' pos='absolute' mb={5} ml={2} onClick={()=> signOut(auth)}>Sign Out</Button>
+      </Box>
+        
+      <motion.div
+      variants={buttonVariant}
+      initial='hidden'
+      whileHover='hover'
+      >
+      <Button size='sm' mt='-70px' bg='var(--icon-color)' color='var(--bg-color)' _hover={{background: 'var(--icon-shadow-color)'}}  ml={2} onClick={()=> signOut(auth)}>Sign Out</Button>
+      </motion.div>
         </chakra.div>
         {notes ? <NotesList
             notes={notes}
             setNotes={setNotes}
-            userEmail={userEmail}/>: <p className='text'>"no tasks"</p>}
-      
+            userEmail={userEmail}/>: <Spinner
+            thickness='5px'
+            speed='0.65s'
+            emptyColor='gray.200'
+            color='blue.500'
+            size='xl'
+            ml='50%'
+            mt={60}
+          />}
 </>
 )
 }

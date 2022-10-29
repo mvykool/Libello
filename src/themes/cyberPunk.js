@@ -1,8 +1,16 @@
 export default function cyberPunk() {
     document.documentElement.style.setProperty("--text-color", "#05d9e8")
-    document.documentElement.style.setProperty("--bg-color", "#091833")
+    document.documentElement.style.setProperty("--bg-color", "#0b001b")
     document.documentElement.style.setProperty("--border-color", "#0abdc6")
     document.documentElement.style.setProperty("--note-color", "#0abdc6")
-    document.documentElement.style.setProperty("--title-color", "#ea00d9")
+    document.documentElement.style.setProperty("--title-color", "#ffebf6")
+    document.documentElement.style.setProperty("--icon-color", "#ea00d9")
+    document.documentElement.style.setProperty("--icon-shadow-color", "#94167F")
+    document.documentElement.style.setProperty("--title-shadow", "0 0 2px #fff, 0 0 5px pink, 0 0 12px pink, 0 0 30px #711c91, 0 0 70px #711c91, 0 0 80px #711c91, 0 0 90px #711c91, 0 0 120px #711c91")
     document.documentElement.style.setProperty("--note-text-color", "#711c91")
+    document.documentElement.style.setProperty("--note-date-color", "#4e275d")
+    document.documentElement.style.setProperty("--theme-bg", "#0b001b")
+    document.documentElement.style.setProperty("--font-family", "Audiowide, cursive")
+    document.documentElement.style.setProperty("--border-radius", "none")
+    document.documentElement.style.setProperty("--note-shadow", "none")
 }

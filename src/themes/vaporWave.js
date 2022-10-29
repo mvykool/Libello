@@ -1,0 +1,16 @@
+export default function vaporWave() {
+    document.documentElement.style.setProperty("--text-color", "#E93479")
+    document.documentElement.style.setProperty("--bg-color", "#400D51")
+    document.documentElement.style.setProperty("--border-color", "")
+    document.documentElement.style.setProperty("--note-color", "#F9AC53")
+    document.documentElement.style.setProperty("--title-color", "#F62E97")
+    document.documentElement.style.setProperty("--icon-color", "#F62E97")
+    document.documentElement.style.setProperty("--icon-shadow-color", "#F9AC53")
+    document.documentElement.style.setProperty("--title-shadow", "none")
+    document.documentElement.style.setProperty("--note-text-color", "#153CB4")
+    document.documentElement.style.setProperty("--note-date-color", "#4e275d")
+    document.documentElement.style.setProperty("--theme-bg", "#0b001b")
+    document.documentElement.style.setProperty("--font-family", "Knewave, cursive")
+    document.documentElement.style.setProperty("--border-radius", "8px")
+    document.documentElement.style.setProperty("--note-shadow", "none")
+}
