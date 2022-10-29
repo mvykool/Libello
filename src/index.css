@@ -1,0 +1,113 @@
+:root {
+    --bg-color: #1a202c;
+    --text-color: white;
+    --border-color: white;
+    --note-color: white;
+    --note-text-color: black;
+    --title-color: black;
+}
+
+.body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.form {
+    background-color: gray;
+    width: 20%;
+    margin: 5% auto;
+    padding: 2%;
+    border-radius: 5%;
+}
+
+.login-title {
+    display: flex;
+    justify-content: center;
+    letter-spacing: 1px;
+}
+
+.login-label {
+    margin: 5% 12%;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.input-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.text-place {
+    border: none;
+    margin-left: 10%;
+    width: 80%;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin: 7% auto;
+    padding: 3% 5%;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: 300ms;
+}
+
+.button-container:hover {
+    transform: scale(1.1);
+}
+
+.button-container-google {
+    display: flex;
+    justify-content: center;
+    margin: 7% auto;
+    padding: 3% 5%;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 300ms;
+    box-shadow: rgba(0, 14, 32, 0.2) 0px 7px 29px 0px;
+    color: white;
+    background-color: rgb(0, 105, 242);
+}
+
+.button-container-google:hover {
+    transform: scale(1.1);
+}
+
+.button-container-question {
+    display: flex;
+    justify-content: center;
+    margin: 7% auto;
+    padding: 3% 5%;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: transparent;
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.button-container-question:hover {
+    transform: scale(1.1);
+}
+
+.profile-img {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    margin-top: 80px;
+    margin-left: 20px;
+    margin-bottom: 40px;
+}
+
+.color-item {
+    cursor: pointer;
+}
