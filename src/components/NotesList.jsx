@@ -87,7 +87,7 @@ async function handleDeleteNote(noteId) {
       )
     })}
     </Box>
-   
+
   </Box>
 
   )
