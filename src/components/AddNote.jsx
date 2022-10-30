@@ -103,7 +103,7 @@ return (
             <Button bg='var(--icon-color)' color='var(--bg-color)' _hover={{background: 'var(--icon-shadow-color)'}}  mr={3}  onClick={onClose}>
               Close
             </Button>
-            <Button variant='ghost' type='submit' color='var(--title-color)' onClick={onClose}>Add Task</Button>
+            <Button variant='ghost' type='submit' color='var(--title-color)' onClick={onClose}>Add Notes</Button>
           </ModalFooter>
           </form>
         </ModalContent>
