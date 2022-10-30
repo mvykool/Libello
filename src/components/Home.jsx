@@ -135,7 +135,7 @@ animate='visible'
         </Heading>
         { menu ? 
       
-        <MenuMobile 
+        <MenuMobile
               setShowMenu={setShowMenu}
               uid={uid}
               notes={notes}

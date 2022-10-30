@@ -51,9 +51,9 @@ const MenuMobile = ({ userEmail, uid, notes, setNotes, setShowMenu}) => {
   animate='visible'
   >
 
-<Box className='mobile-menu' display={{ lg: 'block'}} mt={{lg:'0', base: '-7vh'}} border={{base: '1px', lg: 'none'}} bg={{base: 'var(--bg-color)'}} p={{base:2, lg: '0'}} right={{base: 0, lg: '0'}} position={{base: 'absolute', lg: 'relative'}} >
+<Box className='mobile-menu' display={{ lg: 'none'}} mt={{lg:'0', base: '-7vh'}} border={{base: '1px', lg: 'none'}} bg={{base: 'var(--bg-color)'}} p={{base:2, lg: '0'}} right={{base: 0, lg: '0'}} position={{base: 'absolute', lg: 'relative'}} >
 
-<Icon as={IoClose} w={9} h={9} ml={7} mt={{base: 5}} onClick={()=> setShowMenu(false)}></Icon>
+<Icon as={IoClose} display={{lg: 'none'}} w={9} h={9} ml={7} mt={{base: 5}} onClick={()=> setShowMenu(false)}></Icon>
           <Box mt={{base: '-50px'}}>
             <ProfilePicAndTheme uid={uid}/>
           </Box>

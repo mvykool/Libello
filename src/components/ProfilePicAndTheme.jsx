@@ -112,7 +112,7 @@ return (
 			<Heading as='h1' mt={7} ml={24} mb='30px' fontFamily='var(--font-family)' color='var(--title-color)' textShadow='var(--title-shadow)'>Themes</Heading>
         <DrawerCloseButton />
 		{colors.map((color, idx) => <ColorItem key={idx} setColor={setColor} color={color}  isOpen={isOpen} />)}
-        <Box color='var(--title-color)' mt={{lg: 36, base: 20}} fontSize={{lg: '12px', base: '10px'}} ml={20} letterSpacing={2} >Created By Maicol H</Box>
+        <Box color='var(--title-color)' mt={{lg: 36, base: 28}} fontSize={{lg: '12px', base: '10px'}} ml={20} letterSpacing={2} >Created By Maicol H</Box>
         </DrawerContent>
 		
     </Drawer>

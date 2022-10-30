@@ -79,7 +79,7 @@ async function handleDeleteNote(noteId) {
         onClick={()=> handleDeleteNote(note.id)}
         ></Icon>
           <chakra.p color='var(--note-text-color)' mt={3} fontSize='18px' letterSpacing={1} >{note.content}</chakra.p>
-          <Box display='none'  color='var(--note-date-color)' mt={{lg: 32, base: 1}} _groupHover={{ display: 'block'  }}>
+          <Box display='none' opacity='0.5' color='var(--note-date-color)' mt={{lg: 'auto', base: 1}} _groupHover={{ display: 'block'  }}>
             <chakra.small fontSize={{lg:'11px', base:'9px'}} >{note.date}</chakra.small>
           </Box>
         </Box>
