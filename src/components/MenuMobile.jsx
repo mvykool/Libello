@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import FirebaseApp from '../firebase/firebase'
 import { getAuth, signOut } from 'firebase/auth'
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'
@@ -6,11 +6,11 @@ import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'
 import AddNote from './AddNote';
 import ProfilePicAndTheme  from './ProfilePicAndTheme';
 
-
 import { motion } from 'framer-motion'
+import { IoClose } from 'react-icons/io5'
 
 /**chakra ui */
-import { Button, Box } from '@chakra-ui/react'
+import { Button, Box, Icon} from '@chakra-ui/react'
 
 /**button motion */
 
@@ -28,7 +28,7 @@ const buttonVariant = {
     initial: { opacity: 0, x: 1000},
     visible: { opacity: 1, x: 0,
     transition: {
-      duration: 0.6, ease: 'easeIn'
+      duration: 0.5, ease: 'easeIn'
     }
     }
   }
@@ -40,10 +40,7 @@ const auth = getAuth(FirebaseApp);
 const firestore = getFirestore(FirebaseApp);
 
 
-const MenuMobile = ({ userEmail, uid, notes, setNotes}) => {
-
-
-
+const MenuMobile = ({ userEmail, uid, notes, setNotes, setShowMenu}) => {
 
 
   
@@ -54,9 +51,10 @@ const MenuMobile = ({ userEmail, uid, notes, setNotes}) => {
   animate='visible'
   >
 
-<Box className='mobile-menu' display={{ lg: 'block'}} mt={{lg:'0', base:'4.7vh'}} border={{base: '1px', lg: 'none'}} bg={{base: 'var(--bg-color)'}} p={{base:2, lg: '0'}} right={{base: 0, lg: '0'}} position={{base: 'absolute', lg: 'relative'}} >
+<Box className='mobile-menu' display={{ lg: 'block'}} mt={{lg:'0', base: '-7vh'}} border={{base: '1px', lg: 'none'}} bg={{base: 'var(--bg-color)'}} p={{base:2, lg: '0'}} right={{base: 0, lg: '0'}} position={{base: 'absolute', lg: 'relative'}} >
 
-          <Box >
+<Icon as={IoClose} w={9} h={9} ml={6} mt={{base: 2}} onClick={()=> setShowMenu(false)}></Icon>
+          <Box mt={{base: '-50px'}}>
             <ProfilePicAndTheme uid={uid}/>
           </Box>
         <Box mb={60}>

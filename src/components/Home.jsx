@@ -140,6 +140,7 @@ animate='visible'
         { menu ? 
         <div ref={ref}>
         <MenuMobile 
+              setShowMenu={setShowMenu}
               uid={uid}
               notes={notes}
               setNotes={setNotes}
