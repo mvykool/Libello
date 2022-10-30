@@ -50,8 +50,8 @@ async function handleDeleteNote(noteId) {
   /**handle delete task button  */
 
   return (
-<Box ml={52} mt={9} position='absolute'>
-  <Heading mb={16} color='var(--title-color)' textShadow='var(--title-shadow)' letterSpacing={2} fontFamily='var(--font-family)'> My Notes</Heading>
+<Box ml={{lg:52, base: 10}} mt={{lg: 9, base: 16}} position='absolute'>
+  <Heading mb={{lg:16, base: 10}} color='var(--title-color)' textShadow='var(--title-shadow)' letterSpacing={2} fontFamily='var(--font-family)'> My Notes</Heading>
   
   <Box display='flex' flexWrap='wrap'>
     {notes.map((note)=> {
@@ -62,21 +62,23 @@ async function handleDeleteNote(noteId) {
       whileHover='hover'
       drag
       dragConstraints={{
-        top: -270,
-        left: -300,
-        right: 300,
-        bottom: 270,
+        top: -5,
+        left: 0,
+        right: 0,
+        bottom: 5,
       }}
      animate='show'
       key={note.id}
       >
-        <Box bg='var(--note-color)' shadow='var(--note-shadow)' cursor='pointer' color='var(--note-text-color)' border='1px' borderColor='var(--border-color)' p={5} borderRadius='var(--border-radius)' m={5}  w='220px' h='220px' role='group'>
-        <Icon as={BiX} display='none' opacity={0.3} _groupHover={{ display: 'block'  }} w={10} h={10} color='var(--icon-color)' mt='-23px' ml={40} cursor='pointer' position='absolute'
+        <Box  bg='var(--note-color)' shadow='var(--note-shadow)' cursor='pointer' color='var(--note-text-color)' border='1px' borderColor='var(--border-color)' p={5} borderRadius='var(--border-radius)' m={{lg: 5, base: 1}}  w={{lg:'220px', base: '330px'}} h={{lg:'220px', base:'100px'}} ml={{lg: '0', base: '-17px'}} role='group'>
+
+
+        <Icon as={BiX} display='none' opacity={0.3}  _groupHover={{ display: 'block'  }} w={8} h={8} color='var(--icon-color)' mt='-15px' right={{lg: 6, base: 4}} cursor='pointer'position='absolute'
         onClick={()=> handleDeleteNote(note.id)}
         ></Icon>
-          <chakra.p color='var(--note-text-color)' fontSize='19px' letterSpacing={1} >{note.content}</chakra.p>
-          <Box display='none' color='var(--note-date-color)' mt={20} _groupHover={{ display: 'block'  }}>
-            <chakra.small fontSize='11px'>{note.date}</chakra.small>
+          <chakra.p color='var(--note-text-color)' mt={3} fontSize='18px' letterSpacing={1} >{note.content}</chakra.p>
+          <Box display='none'  color='var(--note-date-color)' mt={{lg: 20, base: 1}} _groupHover={{ display: 'block'  }}>
+            <chakra.small fontSize={{lg:'11px', base:'9px'}} >{note.date}</chakra.small>
           </Box>
         </Box>
       </motion.div>

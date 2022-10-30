@@ -11,11 +11,16 @@ import { getAuth,
       signInAnonymously
   } from 'firebase/auth'
 
-import { Button } from '@chakra-ui/react';
+import { Button, chakra, Icon } from '@chakra-ui/react';
+import { FcGoogle } from 'react-icons/fc'
+
+/**firebase imports */
 
 const auth = getAuth(firebaseApp);
 const googleProvider = new GoogleAuthProvider();
 const user = auth.currentUser;
+
+
 
 
 const Login = () => {
@@ -34,7 +39,7 @@ async function submitHandler(e) {
 
   if (isRegistered) {
     const userData = await createUserWithEmailAndPassword(auth, email, password, photo);
-    console.log(userData.photo);
+    
 
   }
   else {
@@ -51,15 +56,20 @@ async function signInAsGuess () {
 
 
   return (
-    <div className='form'>
-      <h1 className='login-title'>Welcome to Libello!</h1>
+    <>
+    <chakra.div className='bg' fontFamily='Comfortaa, cursive'>
+    <chakra.div w={{lg: '45%', base: "350px"}} className='form' mt={40} zIndex='50'>
+      <chakra.h1 m={10} color='Black' fontWeight='bold' fontSize={{lg: 32, base: 22}} className='login-title'>Welcome to Libello!</chakra.h1>
       <form onSubmit={submitHandler}>
-        <button type='button' className="button-container-google" onClick={() => signInWithRedirect(auth, googleProvider)}>
+        <chakra.button type='button' bg='gray.400' className="button-container-google" onClick={() => signInWithRedirect(auth, googleProvider)}>
             Continue with Google
-        </button>
-        <Button type='button' className="button-container-question" ml={8} bg='gray.400' onClick={signInAsGuess}>Log in as Demo user</Button>
+            <Icon as={FcGoogle} w={7} h={7} ml={2} mt='-4px'></Icon>
+        </chakra.button>
+        <Button display='flex' type='button' className="button-container-question" bg='blue.500' _hover={{background: "blue.800"}} onClick={signInAsGuess}>Log in as Demo user</Button>
     </form>
-    </div>
+    </chakra.div>
+    </chakra.div>
+    </>
   )
 }
 

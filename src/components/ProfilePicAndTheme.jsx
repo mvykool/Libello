@@ -7,6 +7,7 @@ import vaporWave from '../themes/vaporWave'
 import Cream from '../themes/Cream'
 import Matrix from '../themes/Matrix'
 import Azul from '../themes/Azul'
+import Light from '../themes/Light'
 import {
 	Drawer,
 	DrawerOverlay,
@@ -34,7 +35,7 @@ const iconsVariants = {
 
 	/**array with the color options */
 
-	const colors = ["Cyber-Punk", "vaporwave", "cream", "Matrix", "Azul"];
+	const colors = ["Light","Cyber-Punk", "vaporwave", "cream", "Matrix", "Azul"];
 
 	/**set useEffect with loca storage */
 	useEffect(()=>{
@@ -50,6 +51,8 @@ const iconsVariants = {
 		Matrix();
 	}else if (currentColor == "Azul"){
 		Azul();
+	}else{
+		Light();
 	}
 	
 	},[])
@@ -74,6 +77,8 @@ const iconsVariants = {
 		}
 		else if (currentColor == "Azul"){
 			Azul();
+		}else{
+			Light();
 		}
 		
 
@@ -107,7 +112,7 @@ const iconsVariants = {
 			<Heading as='h1' mt={7} ml={24} mb='30px' fontFamily='var(--font-family)' color='var(--title-color)' textShadow='var(--title-shadow)'>Themes</Heading>
           <DrawerCloseButton />
 		  {colors.map((color, idx) => <ColorItem key={idx} setColor={setColor} color={color}  isOpen={isOpen} />)}
-        <Box color='var(--title-color)' mt={36} fontSize='12px' ml={20} letterSpacing={2} >Created By Maicol H</Box>
+        <Box color='var(--title-color)' mt={{lg: 36, base: 20}} fontSize={{lg: '12px', base: '10px'}} ml={20} letterSpacing={2} >Created By Maicol H</Box>
         </DrawerContent>
 		
       </Drawer>

@@ -17,15 +17,26 @@
     background: var(--bg-color);
     color: var(--text-color);
     font-family: var(--font-family);
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.bg {
+    background-image: url(/public/login-bg.jpg);
+    position: absolute;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .form {
-    background-color: gray;
+    background-color: white;
     width: 20%;
     margin: 5% auto;
     padding: 2%;
-    border-radius: 5%;
+    border-radius: 15px;
 }
 
 .login-title {
@@ -56,6 +67,7 @@
 .button-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin: 7% auto;
     padding: 3% 5%;
     border: none;
@@ -131,4 +143,15 @@
 .color-item:hover {
     border: 3px solid var(--text-color);
     transform: scale(1.2);
+}
+
+
+/*media queries for mobile*/
+
+.mobile-menu {
+    z-index: 100;
+}
+
+.note {
+    z-index: 10;
 }

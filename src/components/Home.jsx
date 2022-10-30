@@ -10,9 +10,15 @@ import ProfilePicAndTheme  from './ProfilePicAndTheme';
 
 
 import { motion } from 'framer-motion'
+import { SlNotebook } from 'react-icons/sl'
+import {GiHamburgerMenu} from 'react-icons/gi'
 
 
-import { chakra, Spinner, Text} from '@chakra-ui/react';
+import { chakra, Spinner} from '@chakra-ui/react';
+/**chakra ui */
+import { Heading, Button, Box, Icon } from '@chakra-ui/react'
+import MenuMobile from './MenuMobile';
+import { useOutsideClick } from '@chakra-ui/react'
 
 /** starting firebase auth and firestore */
 
@@ -20,11 +26,6 @@ const auth = getAuth(FirebaseApp);
 const firestore = getFirestore(FirebaseApp);
 
 
-
-/** starting firebase auth and firestore */
-
-/**chakra ui */
-import { Heading, Button, Box } from '@chakra-ui/react'
 
 /**button motion */
 
@@ -38,10 +39,34 @@ const buttonVariant = {
   }
 }
 
+const variantPage = {
+  hidden: {x: 1000},
+  visible: { x: 0,
+  transition: {
+   ease : 'easeIn'
+  }
+  }
+}
+
 
 const Home = ({ userEmail, uid }) => {
 
-  console.log(uid)
+/**state for mobile menu */
+
+const [showMenu, setShowMenu] = useState(false);
+
+let menu;
+const ref = React.useRef()
+useOutsideClick({
+  ref: ref,
+  handler: () => setShowMenu(false),
+})
+if(showMenu){
+  menu = <div >
+
+  </div>
+}
+
 
 /** place holder note*/
 
@@ -95,30 +120,59 @@ fetchNotes();
 
 return (
 <>
-        <chakra.div w={36} position='absolute' h='100vh' border='1px' borderColor='var(--border)' p={5} borderRadius='5px'>
-        <Heading as='h1' ml={3} size='md' color='var(--title-color)' letterSpacing={1} textShadow='var(--title-shadow)' fontFamily='var(--font-family)'>
+<motion.div
+variants={variantPage}
+initial='hidden'
+animate='visible'
+>
+
+        <chakra.div className='mobile-nav-bar'
+        w={{lg: 36, base: '100vw'}} position={{lg: 'absolute'}} h={{lg:'100vh', base: '12vh'}} border='1px' borderColor='var(--border)' p={5} borderRadius='5px'>
+        <Heading as='h1' ml={3} size={{lg: 'sm', base: 'md'}} color='var(--title-color)' letterSpacing={1} textShadow='var(--title-shadow)' fontFamily='var(--font-family)'display='flex' >
             Libello
+            <Icon as={SlNotebook} mt={{lg:'0', base: 1}} h={4} w={4} ml={2} color='var(--title-color)' ></Icon>
+
+
+          <Icon as={GiHamburgerMenu} h={9} w={9} display={{lg:'none', base: 'block'}} right={{base:8}} position={{base: 'absolute'}} 
+          onClick={()=> setShowMenu(!showMenu)}
+          ></Icon>
         </Heading>
-        
-        <Box >
-          <ProfilePicAndTheme uid={uid}/>
+        { menu ? 
+        <div ref={ref}>
+        <MenuMobile 
+              uid={uid}
+              notes={notes}
+              setNotes={setNotes}
+              userEmail={userEmail}/>
+              </div> : false}
+
+  
+  <Box className='mobile-menu' display={{ lg: 'block', base: 'none'}} >
+          
+          <Box >
+            <ProfilePicAndTheme uid={uid}/>
+          </Box>
+        <Box mb={60}>
+        <AddNote
+              notes={notes}
+              setNotes={setNotes}
+              userEmail={userEmail}
+          />
         </Box>
-      <Box mb={60}>
-      <AddNote
-            notes={notes}
-            setNotes={setNotes}
-            userEmail={userEmail}
-        />
-      </Box>
-        
-      <motion.div
-      variants={buttonVariant}
-      initial='hidden'
-      whileHover='hover'
-      >
-      <Button size='sm' mt='-70px' bg='var(--icon-color)' color='var(--bg-color)' _hover={{background: 'var(--icon-shadow-color)'}}  ml={2} onClick={()=> signOut(auth)}>Sign Out</Button>
-      </motion.div>
+      
+        <motion.div
+        variants={buttonVariant}
+        initial='hidden'
+        whileHover='hover'
+        >
+        <Button size='sm' mt={{base:'-40vh', lg: '1px'}} bg='var(--icon-color)' color='var(--bg-color)' _hover={{background: 'var(--icon-shadow-color)'}}  ml={2} onClick={()=> signOut(auth)}>Sign Out</Button>
+        </motion.div>
+        </Box> 
+    
+
+
         </chakra.div>
+        
         {notes ? <NotesList
             notes={notes}
             setNotes={setNotes}
@@ -131,6 +185,7 @@ return (
             ml='50%'
             mt={60}
           />}
+          </motion.div>
 </>
 )
 }
