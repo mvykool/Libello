@@ -150,6 +150,7 @@
 
 .mobile-menu {
     z-index: 100;
+    height: auto;
 }
 
 .note {

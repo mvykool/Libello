@@ -53,7 +53,7 @@ const MenuMobile = ({ userEmail, uid, notes, setNotes, setShowMenu}) => {
 
 <Box className='mobile-menu' display={{ lg: 'block'}} mt={{lg:'0', base: '-7vh'}} border={{base: '1px', lg: 'none'}} bg={{base: 'var(--bg-color)'}} p={{base:2, lg: '0'}} right={{base: 0, lg: '0'}} position={{base: 'absolute', lg: 'relative'}} >
 
-<Icon as={IoClose} w={9} h={9} ml={6} mt={{base: 2}} onClick={()=> setShowMenu(false)}></Icon>
+<Icon as={IoClose} w={9} h={9} ml={7} mt={{base: 5}} onClick={()=> setShowMenu(false)}></Icon>
           <Box mt={{base: '-50px'}}>
             <ProfilePicAndTheme uid={uid}/>
           </Box>
@@ -70,7 +70,7 @@ const MenuMobile = ({ userEmail, uid, notes, setNotes, setShowMenu}) => {
         initial='hidden'
         whileHover='hover'
         >
-        <Button size='sm' mt={{base:'-39vh', lg: '1px'}} bg='var(--icon-color)' color='var(--bg-color)' _hover={{background: 'var(--icon-shadow-color)'}}  ml={{lg: 2}} onClick={()=> signOut(auth)}>Sign Out</Button>
+        <Button size='sm' mt={{base:'-10vh', lg: '1px'}} bg='var(--icon-color)' color='var(--bg-color)' _hover={{background: 'var(--icon-shadow-color)'}}  ml={{lg: 2}} onClick={()=> signOut(auth)}>Sign Out</Button>
         </motion.div>
         </Box> 
 	</motion.div>

@@ -43,7 +43,7 @@ const variantPage = {
   hidden: {x: 1000},
   visible: { x: 0,
   transition: {
-   ease : 'easeIn'
+  duration: 0.5
   }
   }
 }
@@ -56,11 +56,7 @@ const Home = ({ userEmail, uid }) => {
 const [showMenu, setShowMenu] = useState(false);
 
 let menu;
-const ref = React.useRef()
-useOutsideClick({
-  ref: ref,
-  handler: () => setShowMenu(false),
-})
+
 if(showMenu){
   menu = <div >
 
@@ -138,17 +134,17 @@ animate='visible'
           ></Icon>
         </Heading>
         { menu ? 
-        <div ref={ref}>
+      
         <MenuMobile 
               setShowMenu={setShowMenu}
               uid={uid}
               notes={notes}
               setNotes={setNotes}
               userEmail={userEmail}/>
-              </div> : false}
+              : false}
 
   
-  <Box className='mobile-menu' display={{ lg: 'block', base: 'none'}} >
+  <Box  display={{ lg: 'block', base: 'none'}} >
           
           <Box >
             <ProfilePicAndTheme uid={uid}/>
@@ -183,7 +179,7 @@ animate='visible'
             emptyColor='gray.200'
             color='blue.500'
             size='xl'
-            ml='50%'
+            ml={{lg: '50%',base: '45%'}}
             mt={60}
           />}
           </motion.div>
